@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "froot"
+    }
+  },
+  "defaultProject": "froot",
+  "cli": {
+    "analytics": "741e0e1a-9111-4ae0-b560-899b54b6b96f"
+  }
 }
