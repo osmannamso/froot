@@ -1,0 +1,61 @@
+@import "src/styles/theming";
+
+.movies-cover {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 15px;
+
+  .movie-item {
+    flex: 1 1 19%;
+    max-width: 220px;
+    display: block;
+    margin-top: 15px;
+    text-decoration: none;
+
+    .movie-poster {
+      width: 100%;
+      height: 330px;
+      object-fit: contain;
+    }
+
+    .movie-title {
+      text-align: center;
+      color: $white;
+    }
+  }
+}
+
+.search-cover {
+  margin-top: 30px;
+  text-align: center;
+
+  label {
+    input[type=text] {
+      padding: 5px 15px;
+      width: 400px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .movies-cover {
+    .movie-item {
+      flex: 1 1 50%;
+      max-width: 45%;
+
+      .movie-poster {
+        width: 153px;
+        height: 230px;
+      }
+    }
+  }
+
+  .search-cover {
+    label {
+      input[type=text] {
+        width: 200px;
+      }
+    }
+  }
+}

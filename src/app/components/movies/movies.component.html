@@ -1,0 +1,11 @@
+<div class="search-cover">
+  <label>
+    <input type="text" [formControl]="searchControl" placeholder="Search movies" />
+  </label>
+</div>
+<div class="movies-cover">
+  <a [routerLink]="['/movies/', movie.id]" *ngFor="let movie of searchPagination?.results || moviePagination?.results" class="movie-item">
+    <img [src]="movie.poster_path" [alt]="movie.title" (error)="imageError($event)" class="movie-poster" />
+    <div class="movie-title">{{ movie.title }}</div>
+  </a>
+</div>

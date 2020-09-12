@@ -1,0 +1,32 @@
+<div *ngIf="movie" class="movie-cover">
+  <img [src]="movie.poster_path" [alt]="movie.title" (error)="imageError($event)" class="movie-poster" />
+  <div class="movie-info">
+    <h2 class="movie-name">{{ movie.title }}</h2>
+    <div class="key-value">
+      Released date:
+      <b>{{ movie.release_date | date: 'dd MMM yyyy' }}</b>
+    </div>
+    <ng-container *ngIf="movie.production_companies.length">
+      <div class="key-value">
+        Country:
+        <b>{{ movie.production_companies[0].origin_country }}</b>
+      </div>
+      <div class="key-value">
+        Company name:
+        <b>{{ movie.production_companies[0].name }}</b>
+      </div>
+    </ng-container>
+    <div class="movie-description">
+      {{ movie.overview }}
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="similarMoviePagination?.results.length">
+  <h3>Similar movies</h3>
+  <div class="movies-similar-cover">
+    <a [routerLink]="['/movies', movie.id]" *ngFor="let movie of similarMoviePagination?.results" class="movie-similar-item">
+      <img [src]="movie.poster_path" [alt]="movie.title" class="movie-poster" />
+      <div class="movie-title">{{ movie.title }}</div>
+    </a>
+  </div>
+</ng-container>
